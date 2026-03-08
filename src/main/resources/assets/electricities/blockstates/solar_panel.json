@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "south=false,north=false,east=false,west=false": {
+      "model": "electricities:block/solar_panel_0"
+    },
+    "south=false,north=false,east=false,west=true": {
+      "model": "electricities:block/solar_panel_1w"
+    },
+    "south=false,north=false,east=true,west=false": {
+      "model": "electricities:block/solar_panel_1e"
+    },
+    "south=false,north=false,east=true,west=true": {
+      "model": "electricities:block/solar_panel_2ew"
+    },
+    "south=false,north=true,east=false,west=false": {
+      "model": "electricities:block/solar_panel_1n"
+    },
+    "south=false,north=true,east=false,west=true": {
+      "model": "electricities:block/solar_panel_2nw"
+    },
+    "south=false,north=true,east=true,west=false": {
+      "model": "electricities:block/solar_panel_2ne"
+    },
+    "south=false,north=true,east=true,west=true": {
+      "model": "electricities:block/solar_panel_3new"
+    },
+    "south=true,north=false,east=false,west=false": {
+      "model": "electricities:block/solar_panel_1s"
+    },
+    "south=true,north=false,east=false,west=true": {
+      "model": "electricities:block/solar_panel_2sw"
+    },
+    "south=true,north=false,east=true,west=false": {
+      "model": "electricities:block/solar_panel_2se"
+    },
+    "south=true,north=false,east=true,west=true": {
+      "model": "electricities:block/solar_panel_3sew"
+    },
+    "south=true,north=true,east=false,west=false": {
+      "model": "electricities:block/solar_panel_2sn"
+    },
+    "south=true,north=true,east=false,west=true": {
+      "model": "electricities:block/solar_panel_3snw"
+    },
+    "south=true,north=true,east=true,west=false": {
+      "model": "electricities:block/solar_panel_3sne"
+    },
+    "south=true,north=true,east=true,west=true": {
+      "model": "electricities:block/solar_panel_4snew"
+    }
+  }
+}

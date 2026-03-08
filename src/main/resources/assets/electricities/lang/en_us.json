@@ -1,0 +1,12 @@
+{
+  "itemGroup.electricities": "Electricities",
+
+  "block.electricities.battery": "Battery",
+  "item.electricities.raw_silicon": "Raw Silicon",
+  "item.electricities.silicon_ingot": "Silicon Ingot",
+
+  "electricities.ponder.battery_simple.header": "Use batteries to save energy",
+  "electricities.ponder.battery_simple.text_1": "The battery has an input and an output.",
+  "electricities.ponder.battery_simple.text_2": "Input",
+  "electricities.ponder.battery_simple.text_3": "Output"
+}

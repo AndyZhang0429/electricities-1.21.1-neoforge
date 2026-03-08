@@ -1,0 +1,12 @@
+{
+  "itemGroup.electricities": "电力工程",
+
+  "block.electricities.battery": "电池",
+  "item.electricities.raw_silicon": "粗硅",
+  "item.electricities.silicon_ingot": "硅锭",
+
+  "electricities.ponder.battery_simple.header": "用电池储能",
+  "electricities.ponder.battery_simple.text_1": "电池有输入和输出两端",
+  "electricities.ponder.battery_simple.text_2": "输入",
+  "electricities.ponder.battery_simple.text_3": "输出"
+}

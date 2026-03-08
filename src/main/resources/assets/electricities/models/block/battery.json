@@ -1,0 +1,25 @@
+{
+  "parent": "block/block",
+  "textures": {
+    "top": "electricities:block/battery_top",
+    "bottom": "electricities:block/battery_bottom",
+    "side": "electricities:block/battery_side",
+    "side_in": "electricities:block/battery_side_in",
+    "side_out": "electricities:block/battery_side_out",
+    "particle": "electricities:block/battery_side"
+  },
+  "elements": [
+    {
+      "from": [0, 0, 1],
+      "to": [16, 10, 15],
+      "faces": {
+        "north": {"uv": [0, 6, 16, 16], "texture": "#side", "cullface": "north"},
+        "east": {"uv": [1, 6, 15, 16], "texture": "#side_out", "cullface": "east"},
+        "south": {"uv": [0, 6, 16, 16], "texture": "#side", "cullface": "south"},
+        "west": {"uv": [1, 6, 15, 16], "texture": "#side_in", "cullface": "west"},
+        "up": {"uv": [0, 1, 16, 15], "texture": "#top"},
+        "down": {"uv": [0, 1, 16, 15], "texture": "#bottom", "cullface": "down"}
+      }
+    }
+  ]
+}
