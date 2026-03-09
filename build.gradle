@@ -19,7 +19,7 @@ group = mod_group_id
 
 repositories {
     maven { url = "https://raw.githubusercontent.com/Fuzss/modresources/main/maven/" }
-    maven { url = "https://maven.createmod.net" }
+    maven { url = "https://maven.createmod.net/" }
     // Add here additional repositories if required by some of the dependencies below.
 }
 
@@ -136,7 +136,8 @@ dependencies {
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
 
-    implementation "net.createmod.ponder:Ponder-NeoForge-${minecraft_version}:${ponder_version}"
+    implementation("net.createmod.ponder:Ponder-NeoForge-${minecraft_version}:${ponder_version}")
+    compileOnly("com.simibubi.create:create-${minecraft_version}:${create_version}-${create_dev_version}")
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.
