@@ -1,11 +1,11 @@
 package com.fengming.electricities;
 
-import com.fengming.electricities.ponder.ModPonderPlugin;
-import net.createmod.ponder.foundation.PonderIndex;
+import com.fengming.electricities.ponder.ModStartPonderPlugin;
 import net.minecraft.client.Minecraft;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
+import net.neoforged.fml.ModList;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
@@ -29,6 +29,8 @@ public class ElectricitiesClient {
         // Some client setup code
         Electricities.LOGGER.info("HELLO FROM CLIENT SETUP");
         Electricities.LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
-        PonderIndex.addPlugin(new ModPonderPlugin());
+        if(OtherMods.Exsist("ponder")){
+            ModStartPonderPlugin.Start();
+        }
     }
 }

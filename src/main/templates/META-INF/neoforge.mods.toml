@@ -93,14 +93,14 @@ Example mod description.
     modId="create"
     type="optional"
     versionRange="${create_version_range}"
-    ordering="NONE"
+    ordering="AFTER"
     side="BOTH"
 
 [[dependencies.${mod_id}]]
     modId="ponder"
-    type="required"
+    type="optional"
     versionRange="${ponder_version_range}"
-    ordering="NONE"
+    ordering="AFTER"
     side="BOTH"
 
 # Features are specific properties of the game environment, that you may want to declare you require. This example declares
