@@ -5,6 +5,9 @@
   "item.electricities.raw_silicon": "粗硅",
   "item.electricities.silicon_ingot": "硅锭",
 
+  "electricities.ponder.tag.basic": "电力工程",
+  "electricities.ponder.tag.basic.description": "基本的电力工程元件",
+
   "electricities.ponder.battery_simple.header": "用电池储能",
   "electricities.ponder.battery_simple.text_1": "电池有输入和输出两端",
   "electricities.ponder.battery_simple.text_2": "输入",
