@@ -1,5 +1,6 @@
 package com.fengming.electricities;
 
+import com.fengming.electricities.block.ModBlockEntities;
 import com.fengming.electricities.block.ModBlocks;
 import com.fengming.electricities.item.ModCreateModeTabs;
 import com.fengming.electricities.item.ModItems;
@@ -57,6 +58,7 @@ public class Electricities {
 
         // Register the Deferred Register to the mod event bus so blocks get registered
         ModBlocks.BLOCKS.register(modEventBus);
+        ModBlockEntities.BLOCK_ENTITIES.register(modEventBus);
         // Register the Deferred Register to the mod event bus so items get registered
         ModItems.ITEMS.register(modEventBus);
         // Register the Deferred Register to the mod event bus so tabs get registered

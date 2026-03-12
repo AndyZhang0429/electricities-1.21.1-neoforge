@@ -8,7 +8,7 @@ import net.createmod.ponder.api.scene.Selection;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 
-public class ModBatteryPonders {
+public class ModBatteryPonders{
     public static void PonderBatterySimple(SceneBuilder scene, SceneBuildingUtil util){
         scene.title("battery_simple","How to use the battery to save energy");
         scene.configureBasePlate(0,0,9);

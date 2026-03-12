@@ -3,12 +3,18 @@ package com.fengming.electricities.block;
 import com.fengming.electricities.Electricities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.EntityBlock;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityTicker;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -21,12 +27,15 @@ import net.neoforged.neoforge.energy.EnergyStorage;
 
 import javax.annotation.Nullable;
 
-public class SolarPanel extends EnergyGenerator{
+public class SolarPanel extends Block implements EntityBlock {
     // BlockStates Definitions
     public static final BooleanProperty NORTH = BlockStateProperties.NORTH;
     public static final BooleanProperty EAST = BlockStateProperties.EAST;
     public static final BooleanProperty SOUTH = BlockStateProperties.SOUTH;
     public static final BooleanProperty WEST = BlockStateProperties.WEST;
+
+    // LevelAccessor LEVEL;
+    // BlockPos CURRENT_POS;
 
     public SolarPanel(Properties prop){
         super(prop);
@@ -38,6 +47,13 @@ public class SolarPanel extends EnergyGenerator{
                         .setValue(WEST, true)
         );
     }
+
+    @Override
+    public BlockEntity newBlockEntity(BlockPos pos, BlockState state){
+        return new SolarPanelBlockEntity(pos, state);
+    }
+
+
 
     @Override
     public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context){
@@ -56,11 +72,12 @@ public class SolarPanel extends EnergyGenerator{
     @Override
     @Nullable
     public BlockState getStateForPlacement(BlockPlaceContext pContext){
+        Level level = pContext.getLevel();
         BlockPos pos = pContext.getClickedPos();
-        BlockState south_block = pContext.getLevel().getBlockState(pos.south());
-        BlockState north_block = pContext.getLevel().getBlockState(pos.north());
-        BlockState east_block = pContext.getLevel().getBlockState(pos.east());
-        BlockState west_block = pContext.getLevel().getBlockState(pos.west());
+        BlockState south_block = level.getBlockState(pos.south());
+        BlockState north_block = level.getBlockState(pos.north());
+        BlockState east_block = level.getBlockState(pos.east());
+        BlockState west_block = level.getBlockState(pos.west());
         Block current = defaultBlockState().getBlock();
         boolean south = true,
                 north = true,
@@ -105,5 +122,37 @@ public class SolarPanel extends EnergyGenerator{
                 .setValue(NORTH,north)
                 .setValue(EAST,east)
                 .setValue(WEST,west);
+    }
+    
+    public int getGenerateSpeed(LevelAccessor level, BlockPos pos) {
+        return getnConnectedPanels(level,pos)*1;
+    }
+
+    public int getnConnectedPanels(LevelAccessor level, BlockPos pos){
+        Boolean[][] vis = {};
+        return dfsConnections(vis,level,pos);
+    }
+    
+    int dfsConnections(Boolean[][] vis, LevelAccessor level, BlockPos pos){
+        int sum = 1;
+        vis[pos.getX()][pos.getZ()] = true;
+        Block south_block = level.getBlockState(pos.south()).getBlock();
+        Block north_block = level.getBlockState(pos.north()).getBlock();
+        Block east_block = level.getBlockState(pos.east()).getBlock();
+        Block west_block = level.getBlockState(pos.west()).getBlock();
+        Block current = level.getBlockState(pos).getBlock();
+        if(south_block==current){
+            sum += dfsConnections(vis,level,pos.south());
+        }
+        if(north_block==current){
+            sum += dfsConnections(vis,level,pos.north());
+        }
+        if(east_block==current){
+            sum += dfsConnections(vis,level,pos.east());
+        }
+        if(west_block==current){
+            sum += dfsConnections(vis,level,pos.west());
+        }
+        return sum;
     }
 }
